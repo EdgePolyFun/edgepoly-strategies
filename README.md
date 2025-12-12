@@ -1,4 +1,4 @@
-# EdgePoly Strategies
+# EdgePoly Strategiesd
 
 <p align="center">
   <strong>Production-Ready Trading Strategies for EdgePoly</strong>
