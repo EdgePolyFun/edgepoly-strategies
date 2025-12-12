@@ -1,0 +1,83 @@
+{
+  "name": "@edgepoly/strategies",
+  "version": "1.0.0",
+  "description": "Production-ready trading strategies collection for EdgePoly - Chain-Reaction Automation Platform",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./strategies/*": {
+      "require": "./dist/strategies/*.js",
+      "import": "./dist/strategies/*.mjs",
+      "types": "./dist/strategies/*.d.ts"
+    },
+    "./backtesting": {
+      "require": "./dist/backtesting/index.js",
+      "import": "./dist/backtesting/index.mjs",
+      "types": "./dist/backtesting/index.d.ts"
+    },
+    "./signals": {
+      "require": "./dist/signals/index.js",
+      "import": "./dist/signals/index.mjs",
+      "types": "./dist/signals/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "backtest": "tsx src/backtesting/cli.ts",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "edgepoly",
+    "polymarket",
+    "prediction-markets",
+    "trading-strategies",
+    "automation",
+    "backtesting",
+    "algorithmic-trading",
+    "defi",
+    "crypto"
+  ],
+  "author": "EdgePoly Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdgePolyFun/edgepoly-strategies.git"
+  },
+  "homepage": "https://edgepoly.fun",
+  "bugs": {
+    "url": "https://github.com/EdgePolyFun/edgepoly-strategies/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsup": "^8.0.1",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@edgepoly/sdk": "^1.0.0"
+  }
+}
